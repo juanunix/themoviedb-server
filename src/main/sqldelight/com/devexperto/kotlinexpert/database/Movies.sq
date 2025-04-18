@@ -1,0 +1,59 @@
+CREATE TABLE TMDB_movie_dataset_v11 (
+	"id"	INTEGER,
+	"title"	TEXT,
+	"vote_average"	REAL,
+	"vote_count"	INTEGER,
+	"status"	TEXT,
+	"release_date"	TEXT,
+	"revenue"	INTEGER,
+	"runtime"	INTEGER,
+	"adult"	TEXT,
+	"backdrop_path"	TEXT,
+	"budget"	INTEGER,
+	"homepage"	TEXT,
+	"imdb_id"	TEXT,
+	"original_language"	TEXT,
+	"original_title"	TEXT,
+	"overview"	TEXT,
+	"popularity"	REAL,
+	"poster_path"	TEXT,
+	"tagline"	TEXT,
+	"genres"	TEXT,
+	"production_companies"	TEXT,
+	"production_countries"	TEXT,
+	"spoken_languages"	TEXT,
+	"keywords"	TEXT
+);
+
+select:
+SELECT * FROM TMDB_movie_dataset_v11
+LIMIT 100 OFFSET 0;
+
+selectbyId:
+SELECT * FROM TMDB_movie_dataset_v11 WHERE id = ?;
+
+filterByLanguage:
+SELECT * FROM TMDB_movie_dataset_v11 WHERE original_language = ?;
+
+topNPopular:
+SELECT * FROM TMDB_movie_dataset_v11 ORDER BY popularity DESC LIMIT 10;
+
+filterByGenre:
+SELECT * FROM TMDB_movie_dataset_v11 WHERE genres LIKE ?
+LIMIT 100 OFFSET 0;
+
+searchByTitle:
+SELECT * FROM TMDB_movie_dataset_v11 WHERE title LIKE ?
+LIMIT 100 OFFSET 0;
+
+selectLastInsertedNote:
+SELECT * FROM TMDB_movie_dataset_v11 WHERE id = last_insert_rowid();
+
+insert:
+INSERT INTO TMDB_movie_dataset_v11 (id, title, vote_average, vote_count, status, release_date, revenue, runtime, adult, backdrop_path, budget, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, genres ,tagline, production_companies, production_countries,spoken_languages,keywords) VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?, ?);
+
+update:
+UPDATE TMDB_movie_dataset_v11 SET id = ?, title = ?, vote_average = ?, vote_count = ?, status = ?, release_date = ?, revenue = ?, runtime = ?, adult = ?, backdrop_path = ?, budget = ?, homepage = ?, imdb_id = ?, original_language= ?, original_title= ?, overview= ?, popularity= ?, poster_path= ?, genres= ?,tagline= ?, production_companies= ?, production_countries= ?,spoken_languages= ?,keywords= ? WHERE id = ?;
+
+delete:
+DELETE FROM TMDB_movie_dataset_v11 WHERE id = ?;

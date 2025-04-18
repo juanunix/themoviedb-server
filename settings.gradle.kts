@@ -1,0 +1,1 @@
+rootProject.name = "com.juansanz.themoviedb-server"
