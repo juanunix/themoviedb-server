@@ -1,9 +1,9 @@
 package com.juansanz.backend.repositories
 
 
-import com.devexperto.kotlinexpert.database.AppDatabase
-import com.devexperto.kotlinexpert.database.DbNote
+import com.juansanz.backend.database.DbNote
 import com.juansanz.backend.models.Note
+import com.juansanz.themoviedb.database.AppDatabase
 import com.squareup.sqldelight.sqlite.driver.JdbcSqliteDriver
 import java.io.File
 
