@@ -20,7 +20,7 @@ sqldelight {
 }
 
 application {
-    mainClass.set("com.devexperto.kotlinexpert.ApplicationKt")
+    mainClass.set("com.juansanz.backend.ApplicationKt")
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
